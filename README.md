@@ -1,1 +1,155 @@
-# Link-din-codes
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Newton Cradle</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e); /* black → purple gradient */
+        --frame-color: #1e1e2f;   /* dark frame */
+        --rod-color: #c0c0c0;     /* metallic silver rods */
+        --ball1: #ff005c;         /* neon pink */
+        --ball2: #00f5ff;         /* cyan blue */
+        --ball3: #ffe600;         /* bright yellow */
+        --ball4: #00ff85;         /* neon green */
+        --ball5: #ff7b00;         /* orange glow */
+      }
+
+      html {
+        font-size: 80%;
+      }
+
+      body {
+        background: var(--bg-gradient);
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .cradle {
+        background: rgba(30, 30, 47, 0.9);
+        height: 25rem;
+        width: 40rem;
+        border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 2rem;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+      }
+
+      .main {
+        background: var(--rod-color);
+        height: 2rem;
+        width: 30rem;
+        border-radius: 10rem;
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+        margin: 2rem;
+        box-shadow: 0 0 10px rgba(255,255,255,0.4);
+      }
+
+      .main > div {
+        background: var(--rod-color);
+        position: relative;
+        height: 12rem;
+        width: 2rem;
+      }
+
+      /* common ball style */
+      .main > div::before {
+        content: "";
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        position: absolute;
+        top: 9rem;
+        right: -1.5rem;
+        box-shadow: inset -0.5rem -0.5rem 1rem rgba(0,0,0,0.5);
+      }
+
+      /* glowing neon balls */
+      .main > div:nth-child(1)::before {
+        background: var(--ball1);
+        box-shadow: 0 0 1.8rem var(--ball1), inset -0.5rem -0.5rem 1rem rgba(0,0,0,0.5);
+      }
+      .main > div:nth-child(2)::before {
+        background: var(--ball2);
+        box-shadow: 0 0 1.8rem var(--ball2), inset -0.5rem -0.5rem 1rem rgba(0,0,0,0.5);
+      }
+      .main > div:nth-child(3)::before {
+        background: var(--ball3);
+        box-shadow: 0 0 1.8rem var(--ball3), inset -0.5rem -0.5rem 1rem rgba(0,0,0,0.5);
+      }
+      .main > div:nth-child(4)::before {
+        background: var(--ball4);
+        box-shadow: 0 0 1.8rem var(--ball4), inset -0.5rem -0.5rem 1rem rgba(0,0,0,0.5);
+      }
+      .main > div:nth-child(5)::before {
+        background: var(--ball5);
+        box-shadow: 0 0 1.8rem var(--ball5), inset -0.5rem -0.5rem 1rem rgba(0,0,0,0.5);
+      }
+
+      /* animations */
+      .main > div:first-child {
+        animation: left-swing 2s ease-in-out infinite;
+        transform-origin: top left;
+      }
+
+      .main > div:last-child {
+        animation: right-swing 2s ease-in-out 1s infinite;
+        transform-origin: top right;
+      }
+
+      @keyframes left-swing {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(30deg); }
+        50% { transform: rotate(0deg); }
+        100% { transform: rotate(0deg); }
+      }
+
+      @keyframes right-swing {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(-30deg); }
+        50% { transform: rotate(0deg); }
+        100% { transform: rotate(0deg); }
+      }
+
+      /* responsive font scaling */
+      @media (max-width: 768px) {
+        html { font-size: 60%; }
+      }
+      @media (max-width: 360px) {
+        html { font-size: 40%; }
+      }
+      @media (max-width: 225px) {
+        html { font-size: 20%; }
+      }
+      @media (max-width: 115px) {
+        html { font-size: 10%; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cradle">
+      <div class="main">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </body>
+</html>
